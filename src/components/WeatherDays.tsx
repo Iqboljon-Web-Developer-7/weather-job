@@ -3,8 +3,7 @@ import getWeatherIcon from "@/utils/GetWeatherIcon";
 const WeatherDays = ({ uniqueDays }: { uniqueDays: any }) => {
   return (
     <section className="mt-8">
-      <h2 className="text-2xl font-semibold mb-4">7-Day Forecast</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {uniqueDays.map((day: any, index: number) => {
           const isToday = index === 0;
           const isTomorrow = index === 1;
