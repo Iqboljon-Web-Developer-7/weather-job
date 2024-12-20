@@ -9,8 +9,11 @@ const WeatherDays = ({ uniqueDays }: { uniqueDays: any }) => {
           const isTomorrow = index === 1;
 
           return (
-            <div key={index} className={`p-3 rounded-lg shadow-md bg-blue-50`}>
-              <p className="text-lg font-medium text-gray-700">
+            <div
+              key={index}
+              className="p-3 rounded-lg shadow-md bg-blue-50 dark:bg-blue-900"
+            >
+              <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
                 {isToday
                   ? "Сегодня"
                   : isTomorrow
@@ -20,7 +23,7 @@ const WeatherDays = ({ uniqueDays }: { uniqueDays: any }) => {
                       timeZone: "UTC",
                     })}
               </p>
-              <p className="text-sm text-greyAccent">
+              <p className="text-sm text-greyAccent dark:text-gray-400">
                 {new Date(day.dt * 1000).toLocaleDateString("ru-RU", {
                   day: "numeric",
                   month: "short",
@@ -32,14 +35,13 @@ const WeatherDays = ({ uniqueDays }: { uniqueDays: any }) => {
                 alt={day.weather[0].description}
                 className="my-3"
               />
-
-              <p className="text-lg font-medium text-black">
+              <p className="text-lg font-medium text-black dark:text-white">
                 {Math.round(day.main.temp_max - 273.15)}°C
               </p>
-              <p className="text-xs font-normal text-greyAccent">
+              <p className="text-xs font-normal text-greyAccent dark:text-gray-400">
                 {Math.round(day.main.temp_min - 273.15)}°C
               </p>
-              <p className="text-sm text-greyAccent mt-1">
+              <p className="text-sm text-greyAccent mt-1 dark:text-gray-400">
                 {day.weather[0].description}
               </p>
             </div>
