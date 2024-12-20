@@ -1,9 +1,10 @@
 import getWeatherIcon from "@/utils/GetWeatherIcon";
 
 import temperatureIcon from "@/assets/icons/main-status/temp.svg";
-import humidityIcon from "@/assets/icons/main-status/fallout.svg";
-import pressureIcon from "@/assets/icons/main-status/pressure.svg";
+import pressureIcon from "@/assets/icons/main-status/fallout.svg";
+import humidityIcon from "@/assets/icons/main-status/pressure.svg";
 import windIcon from "@/assets/icons/main-status/wind.svg";
+import cloudsImg from "@/assets/icons/main-status/Cloud-img.svg";
 
 const Hero = ({ city, currentWeather }: { city: any; currentWeather: any }) => {
   const dt = new Date(currentWeather?.dt_txt);
@@ -13,8 +14,6 @@ const Hero = ({ city, currentWeather }: { city: any; currentWeather: any }) => {
 
   const weatherMain = currentWeather?.weather[0]?.main || "Clear";
   const weatherIcon = getWeatherIcon(weatherMain);
-
-  console.log(currentWeather);
 
   return (
     <div className="hero flex items-center justify-between gap-[5%]">
@@ -43,45 +42,57 @@ const Hero = ({ city, currentWeather }: { city: any; currentWeather: any }) => {
           </p>
         </div>
       </div>
-      <div className="hero__info flex-grow shadow-md px-10 self-stretch rounded-xl flex justify-center flex-col gap-6">
+      <div
+        style={{
+          backgroundImage: `url('${cloudsImg}')`,
+          backgroundSize: "60%",
+        }}
+        className="hero__info flex-grow shadow-md px-10 self-stretch rounded-xl flex justify-center flex-col gap-5 bg-no-repeat bg-contain bg-right-top"
+      >
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 flex items-center justify-center shadow-md rounded-full">
+          <div className="w-9 h-9 flex items-center justify-center shadow-md rounded-full">
             <img src={temperatureIcon} alt="temp icon" />
           </div>
-          <span className="text-greyAccent font-light">Температура</span>
-          <p className="text-nowrap">
+          <span className=" min-w-28 text-greyAccent font-light text-sm">
+            Температура
+          </span>
+          <p className="text-nowrap text-sm">
             {(currentWeather?.main?.temp - 273.15).toFixed(2)} - ощущается как{" "}
             {(currentWeather?.main?.feels_like - 273.15).toFixed(2)}
           </p>
         </div>
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 flex items-center justify-center shadow-md rounded-full">
-            <img src={temperatureIcon} alt="temp icon" />
+          <div className="w-9 h-9 flex items-center justify-center shadow-md rounded-full">
+            <img src={humidityIcon} alt="humidity icon" />
           </div>
-          <span className="text-greyAccent font-light">Температура</span>
-          <p className="text-nowrap">
+          <span className=" min-w-28 text-greyAccent font-light text-sm">
+            Давление
+          </span>
+          <p className="text-nowrap text-sm">
+            {currentWeather?.main?.humidity} мм ртутного столба - нормальное
+          </p>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="w-9 h-9 flex items-center justify-center shadow-md rounded-full">
+            <img src={pressureIcon} alt="pressure icon" />
+          </div>
+          <span className=" min-w-28 text-greyAccent font-light text-sm">
+            Без осадков
+          </span>
+          <p className="text-nowrap text-sm">
             {(currentWeather?.main?.temp - 273.15).toFixed(2)} - ощущается как{" "}
             {(currentWeather?.main?.feels_like - 273.15).toFixed(2)}
           </p>
         </div>
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 flex items-center justify-center shadow-md rounded-full">
-            <img src={temperatureIcon} alt="temp icon" />
+          <div className="w-9 h-9 flex items-center justify-center shadow-md rounded-full">
+            <img src={windIcon} alt="wind icon" />
           </div>
-          <span className="text-greyAccent font-light">Температура</span>
-          <p className="text-nowrap">
-            {(currentWeather?.main?.temp - 273.15).toFixed(2)} - ощущается как{" "}
-            {(currentWeather?.main?.feels_like - 273.15).toFixed(2)}
-          </p>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 flex items-center justify-center shadow-md rounded-full">
-            <img src={temperatureIcon} alt="temp icon" />
-          </div>
-          <span className="text-greyAccent font-light">Температура</span>
-          <p className="text-nowrap">
-            {(currentWeather?.main?.temp - 273.15).toFixed(2)} - ощущается как{" "}
-            {(currentWeather?.main?.feels_like - 273.15).toFixed(2)}
+          <span className=" min-w-28 text-greyAccent font-light text-sm">
+            Ветер
+          </span>
+          <p className="text-nowrap text-sm">
+            {currentWeather?.wind?.speed}м/с юго-запад - легкий ветер
           </p>
         </div>
       </div>
