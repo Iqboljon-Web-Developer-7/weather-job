@@ -11,9 +11,9 @@ const WeatherDays = ({ uniqueDays }: { uniqueDays: any }) => {
           return (
             <div
               key={index}
-              className="p-3 rounded-lg shadow-md bg-blue-50 dark:bg-blue-900"
+              className="p-3 rounded-lg shadow-md bg-blue-50 dark:bg-blue-900 dark:shadow-slate-700"
             >
-              <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
+              <p className="text-lg font-medium text-black dark:text-gray-300">
                 {isToday
                   ? "Сегодня"
                   : isTomorrow
@@ -23,7 +23,7 @@ const WeatherDays = ({ uniqueDays }: { uniqueDays: any }) => {
                       timeZone: "UTC",
                     })}
               </p>
-              <p className="text-sm text-greyAccent dark:text-gray-400">
+              <p className="text-sm text-greyAccent dark:text-greyAccent">
                 {new Date(day.dt * 1000).toLocaleDateString("ru-RU", {
                   day: "numeric",
                   month: "short",

@@ -17,7 +17,7 @@ const Hero = ({ city, currentWeather }: { city: any; currentWeather: any }) => {
 
   return (
     <div className="hero flex items-center justify-between flex-col md:flex-row gap-3 lg:gap-[5%] dark:text-slate-200">
-      <div className="hero__main w-full md:w-auto min-w-72 shadow-md p-5 rounded-xl grid gap-4">
+      <div className="hero__main w-full md:w-auto min-w-72 shadow-md dark:shadow-slate-800 p-5 rounded-xl grid gap-4">
         <div className="hero__main--info max-w-56 grid grid-cols-2 gap-x-10">
           <div className="flex flex-col">
             <h1 className="text-8xl font-medium text-primary">
@@ -47,7 +47,7 @@ const Hero = ({ city, currentWeather }: { city: any; currentWeather: any }) => {
           backgroundImage: `url('${cloudsImg}')`,
           backgroundSize: "60%",
         }}
-        className="hero__info flex-grow shadow-md px-4 py-7 lg:px-10 self-stretch rounded-xl flex justify-center flex-col gap-5 bg-no-repeat bg-contain bg-right-top"
+        className="hero__info flex-grow shadow-md dark:shadow-slate-800 px-4 py-7 lg:px-10 self-stretch rounded-xl flex justify-center flex-col gap-5 bg-no-repeat bg-contain bg-right-top"
       >
         <div className="flex items-center gap-4">
           <div className="w-9 h-9 flex items-center justify-center shadow-md rounded-full">
